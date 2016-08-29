@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.itcast.rice"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="cn.itcast.rice.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="cn.itcast.rice.Provincereceiver" >
+            <intent-filter android:priority="1000" >
+                <action android:name="xi.send.rice" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.itcast.rice.Cityreceiver" >
+            <intent-filter android:priority="500" >
+                <action android:name="xi.send.rice" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.itcast.rice.Countryreceiver" >
+            <intent-filter android:priority="300" >
+                <action android:name="xi.send.rice" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cn.itcast.rice.Farmerreceiver" >
+            <intent-filter android:priority="-100" >
+                <action android:name="xi.send.rice" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
